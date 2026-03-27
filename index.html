@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPDB SMK Putra Perdana Indonesia 2026/2027</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+:root{
+  --primary:#0b2c4a;
+  --bg:#f4f6fb;
+  --border:#d1d5db;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:var(--bg);
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#0b2c4a,#123b63);
+  color:#fff;
+  text-align:center;
+  padding:50px 20px 80px;
+}
+.header img{width:100px}
+.header h1{margin:15px 0 5px}
+.header p{margin:0;opacity:.9}
+.badge{
+  margin-top:15px;
+  display:inline-block;
+  padding:8px 22px;
+  border-radius:999px;
+  background:rgba(255,255,255,.2);
+}
+
+/* CARD */
+.container{
+  max-width:850px;
+  margin:-50px auto 50px;
+  padding:0 20px;
+}
+.card{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 25px 50px rgba(0,0,0,.12);
+}
+
+/* SECTION */
+.section{margin-bottom:35px}
+.section h3{
+  color:var(--primary);
+  margin-bottom:15px;
+}
+label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+}
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  margin-bottom:18px;
+}
+textarea{resize:vertical}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}}
+
+button{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:30px;
+  background:var(--primary);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+footer{text-align:center;font-size:13px;color:#777;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<nav class="navbar">
+  <img src="PPI.png">
+  <h1>FORMULIR PENDAFTARAN SISWA</h1>
+  <p>SMK Putra Perdana Indonesia<br>TA 2026/2027</p>
+  <div class="badge">No. Registrasi: <b id="noreg"></b></div>
+</div>
+
+<div class="container">
+<div class="card">
+
+<div class="section">
+<h3>Informasi Umum</h3>
+<label>Ukuran Seragam</label>
+<select id="seragam">
+<option>S</option><option>M</option><option>L</option>
+<option>XL</option><option>XXL</option><option>XXXL</option>
+</select>
+</div>
+
+<div class="section">
+<h3>Data Calon Siswa</h3>
+<label>Nama Calon Siswa</label><input id="nama">
+<label>Tempat Tanggal Lahir</label><input id="ttl">
+<label>Jenis Kelamin</label>
+<select id="jk"><option>Laki-laki</option><option>Perempuan</option></select>
+<label>Agama</label>
+<select id="ag"><option>Islam</option>
+<option>Kristen Protestan</option>
+<option>Katolik</option>
+<option>Hindu</option>
+<option>Buddha</option>
+<option>Konghucu</option>
+</select>
+</div>
+
+<div class="section">
+<h3>Data Orang Tua</h3>
+<label>Nama Ayah</label><input id="ayah">
+<label>Nama Ibu</label><input id="ibu">
+<label>Alamat</label><textarea id="alamat"></textarea>
+<label>No. Telp / WhatsApp</label><input id="hp">
+</div>
+
+<div class="section">
+<h3>Data Asal Sekolah</h3>
+<label>Nama Asal Sekolah</label><input id="smp">
+<label>NISN</label><input id="nisn">
+<label>Alamat Sekolah</label><input id="alamat_smp">
+<label>No. Seri Ijazah</label><input id="ijazah">
+<label>Lulus Tahun</label><input id="lulus">
+</div>
+
+<div class="section">
+<h3>Persyaratan</h3>
+<select id="skl"><option>Surat Keterangan Lulus : Ada</option><option>Surat Keterangan Lulus : Tidak Ada</option></select>
+<select id="fcijazah"><option>FC Ijazah : Ada</option><option>FC Ijazah : Tidak Ada</option></select>
+<select id="akte"><option>FC Akte Kelahiran : Ada</option><option>FC Akte Kelahiran : Tidak Ada</option></select>
+<select id="kk"><option>FC Kartu Keluarga : Ada</option><option>FC Kartu Keluarga : Tidak Ada</option></select>
+<select id="foto23"><option>Pas Foto 2x3 : Ada</option><option>Pas Foto 2x3 : Tidak Ada</option></select>
+<select id="foto34"><option>Pas Foto 3x4 : Ada</option><option>Pas Foto 3x4 : Tidak Ada</option></select>
+<select id="foto46"><option>Pas Foto 4x6 : Ada</option><option>Pas Foto 4x6 : Tidak Ada</option></select>
+</div>
+
+<div class="section">
+<h3>Peminatan / Program Keahlian</h3>
+<select id="jurusan">
+<option>TJKT – Teknik Jaringan Komputer & Telekomunikasi</option>
+<option>MPLB – Manajemen Perkantoran & Layanan Bisnis</option>
+<option>AKKL – Akuntansi & Keuangan Lembaga</option>
+</select>
+</div>
+
+<button onclick="cetakPDF()">SUBMIT & CETAK PDF</button>
+
+<footer>© SMK Putra Perdana Indonesia</footer>
+<p><i>Catatan : Setelah mengisi formulir pendaftaran, harap di cetak dan dibawa ke sekolah untuk penyerahan berkas dan persyaratan.</i></p>
+</div>
+</div>
+
+<script>
+function genNo(){
+ let r=Math.floor(100+Math.random()*900);
+ noreg.innerText="262710"+r;
+}
+genNo();
+
+function cetakPDF(){
+ const { jsPDF } = window.jspdf;
+ const pdf = new jsPDF("p","mm","a4");
+
+ /* ===== TANGGAL OTOMATIS ===== */
+ const bulan = [
+  "Januari","Februari","Maret","April","Mei","Juni",
+  "Juli","Agustus","September","Oktober","November","Desember"
+ ];
+ const now = new Date();
+ const tanggalDaftar =
+   now.getDate() + " " +
+   bulan[now.getMonth()] + " " +
+   now.getFullYear();
+
+ let xLabel = 20;
+ let xValue = 75;
+ let y = 20;
+
+ const line = (label, value) => {
+   pdf.text(label, xLabel, y);
+   pdf.text(": " + value, xValue, y);
+   y += 7;
+ };
+
+ /* ===== HEADER ===== */
+ pdf.setFontSize(14);
+ pdf.text("FORMULIR PENDAFTARAN SISWA", 105, y, {align:"center"});
+ y+=7;
+ pdf.setFontSize(11);
+ pdf.text("SMK PUTRA PERDANA INDONESIA",105,y,{align:"center"});
+ y+=6;
+ pdf.text("TAHUN AJARAN 2026/2027",105,y,{align:"center"});
+ y+=10;
+
+ pdf.setFontSize(10);
+ line("No. Registrasi", noreg.innerText);
+ line("Tanggal Pendaftaran", tanggalDaftar);
+ line("Ukuran Seragam", seragam.value);
+ y+=5;
+
+ /* ===== DATA SISWA ===== */
+ pdf.setFontSize(11);
+ pdf.text("A. DATA CALON SISWA", xLabel, y); y+=7;
+ pdf.setFontSize(10);
+ line("Nama Calon Siswa", nama.value);
+ line("Tempat / Tgl Lahir", ttl.value);
+ line("Jenis Kelamin", jk.value);
+ line("Agama", ag.value);
+ y+=5;
+
+ /* ===== ORANG TUA ===== */
+ pdf.setFontSize(11);
+ pdf.text("B. DATA ORANG TUA", xLabel, y); y+=7;
+ pdf.setFontSize(10);
+ line("Nama Ayah", ayah.value);
+ line("Nama Ibu", ibu.value);
+ line("Alamat", alamat.value);
+ line("No. Telp / WA", hp.value);
+ y+=5;
+
+ /* ===== ASAL SEKOLAH ===== */
+ pdf.setFontSize(11);
+ pdf.text("C. DATA ASAL SEKOLAH", xLabel, y); y+=7;
+ pdf.setFontSize(10);
+ line("Nama Sekolah", smp.value);
+ line("NISN", nisn.value);
+ line("Alamat Sekolah", alamat_smp.value);
+ line("No. Seri Ijazah", ijazah.value);
+ line("Lulus Tahun", lulus.value);
+ y+=5;
+
+ /* ===== PERSYARATAN ===== */
+ pdf.setFontSize(11);
+ pdf.text("D. PERSYARATAN", xLabel, y); y+=7;
+ pdf.setFontSize(10);
+ pdf.text(
+  skl.value+" | "+
+  fcijazah.value+" | "+
+  akte.value+" | "+
+  kk.value,
+  xLabel, y
+ );
+ y+=6;
+ pdf.text(
+  foto23.value+" | "+
+  foto34.value+" | "+
+  foto46.value,
+  xLabel, y
+ );
+ y+=8;
+
+ /* ===== PEMINATAN ===== */
+ pdf.setFontSize(11);
+ pdf.text("E. PEMINATAN", xLabel, y); y+=7;
+ pdf.setFontSize(10);
+ line("Program Keahlian", jurusan.value);
+
+ /* ===== TANDA TANGAN ===== */
+ y+=15;
+ pdf.text("Tangerang, " + tanggalDaftar, xLabel, y);
+ y+=18;
+ pdf.text("Orang Tua", xLabel, y);
+ pdf.text("Calon Siswa", 130, y);
+ y+=18;
+ pdf.text("( ............................ )", xLabel, y);
+ pdf.text("( ............................ )", 130, y);
+
+ pdf.save("PPDB_"+noreg.innerText+".pdf");
+}
+</script>
+
+</body>
+</html>

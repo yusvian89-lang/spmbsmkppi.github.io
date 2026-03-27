@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMK Putra Perdana Indonesia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #1c1c1c;
+}
+
+/* ===== NAVBAR ===== */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    background: rgba(8, 24, 64, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #f5c16c;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #f5c16c;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(8, 24, 64, 0.85),
+        rgba(8, 24, 64, 0.85)
+    ),
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.hero h1 span {
+    color: #f5c16c;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 20px auto 35px;
+    color: #e0e6f0;
+    line-height: 1.7;
+
+}
+
+.btn-primary {
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #f5c16c, #e0a843);
+    color: #081840;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+/* ===== SECTION ===== */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    color: #081840;
+}
+
+.subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 15px auto 50px;
+    color: #555;
+}
+
+/* ===== JURUSAN ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    color: #081840;
+    margin-bottom: 15px;
+}
+
+/* ===== KONTAK ===== */
+.kontak {
+    text-align: center;
+}
+
+.kontak p {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #081840;
+    color: #cfd6e6;
+    text-align: center;
+    padding: 25px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .nav-menu {
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.galeri-item {
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    transition: 0.4s;
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.galeri-item:hover img {
+    transform: scale(1.08);
+}
+
+.galeri-item:hover {
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#" class="logo">SMK PPI</a>
+        <div class="nav-menu">
+    <a href="#">Beranda</a>
+    <a href="#jurusan">Jurusan</a>
+    <a href="#galeri">Galeri</a>
+    <a href="C:\Users\SERVER UNBK\Desktop\PPDB\index.html">Pendaftaran</a>
+    <a href="#kontak">Kontak</a>
+</div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <img src="C:\Users\SERVER UNBK\Desktop\PPDB\PPII.png" >
+	<h1>SMK <span>Putra Perdana Indonesia</span></h1>
+        <p>
+            Sekolah kejuruan unggulan dengan sistem pembelajaran
+            berbasis industri, karakter, dan masa depan.
+        </p>
+        <a href="C:\Users\SERVER UNBK\Desktop\PPDB\index.html" class="btn-primary">Daftar Sekarang</a>
+    </div>
+</section>
+
+<section id="jurusan">
+    <h2>Program Keahlian</h2>
+    <p class="subtitle">Pilihan jurusan terbaik untuk masa depan profesional</p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>TJKT</h3>
+            <p>Teknik Jaringan Komputer dan Telekomunikasi berbasis teknologi modern.</p>
+        </div>
+        <div class="card">
+            <h3>AKKL</h3>
+            <p>Akuntansi dan Keuangan Lembaga untuk dunia bisnis dan industri.</p>
+        </div>
+        <div class="card">
+            <h3>MPLB</h3>
+            <p>Manajemen Perkantoran dan Layanan Bisnis profesional.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pendaftaran">
+    <h2>Pendaftaran Peserta Didik Baru</h2>
+    <p class="subtitle">Bergabung bersama SMK Putra Perdana Indonesia</p>
+    <div style="text-align:center">
+        <a href="C:\Users\SERVER UNBK\Desktop\PPDB\index.html" class="btn-primary">Formulir Pendaftaran</a>
+    </div>
+</section>
+<section id="galeri">
+    <h2>Galeri Sekolah</h2>
+    <p class="subtitle">
+        Dokumentasi kegiatan, fasilitas, dan prestasi
+        SMK Putra Perdana Indonesia
+    </p>
+
+    <div class="galeri-grid">
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="">
+        </div>
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b" alt="">
+        </div>
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="">
+        </div>
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2" alt="">
+        </div>
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7" alt="">
+        </div>
+        <div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+        </div>
+	<div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+        </div>
+	<div class="galeri-item">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+        </div>
+    </div>
+</section>
+
+<section id="kontak" class="kontak">
+    <h2>Kontak Kami</h2>
+    <p>📍 Griya Harsa II Blok I 10 Citra Raya, Jl. Citra Raya Utama Barat No. 31-32, 
+	<br>Kec. Cikupa, Kabupaten Tangerang, Banten 15710</br></p>
+    <p>📞 085773792397</p>
+    <p>✉️ info@smkppi.sch.id</p>
+</section>
+
+<footer>
+    © 2026 SMK Putra Perdana Indonesia • All Rights Reserved
+</footer>
+
+</body>
+</html>
